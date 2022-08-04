@@ -4,21 +4,35 @@
 //Если –20>= t, то вывести «Холодно». Можно использовать как Scanner, так и случайное число в диапазоне (-30; 30)
 // (подумать как можно получить такой диапазон с помощью ограничений для nextInt)
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class exercise_1_1 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter air temperature: ");
-        int temp= scanner.nextInt();
-        if(temp<=-20){
-            System.out.println("This is cold");
-        }
-        else if (temp>-20 && temp<=-5) {
-            System.out.println("This is normal");
-        }
-        else {
-            System.out.println("This is warm");
+        double temp = Math.random() * 61 - 30;
+        int result = (int) Math.round(temp);
+        if (temp <= -20) {
+            System.out.println(result + " This is cold");
+        } else if (temp > -20 && temp <= -5) {
+            System.out.println(result + " This is normal");
+        } else {
+            System.out.println(result + " This is warm");
         }
     }
 }
+//        Решение с использованием класса Scanner
+
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Enter air temperature: ");
+//        int temp= scanner.nextInt();
+//        if(temp<=-20){
+//            System.out.println("This is cold");
+//        }
+//        else if (temp>-20 && temp<=-5) {
+//            System.out.println("This is normal");
+//        }
+//        else {
+//            System.out.println("This is warm");
+//        }
+//    }
+// }
