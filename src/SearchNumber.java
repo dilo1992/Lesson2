@@ -10,12 +10,10 @@ public class SearchNumber {
         int number = scanner.nextInt();
         if (number<0 || number>10){
             System.out.println("Number does not match search parameters"); return;
-        }
-        for (int i = 0; i < arr.length; i++) {
+        } for (int i = 0; i < arr.length; i++) {
             arr[i] = new Random().nextInt(0, 10);
             System.out.println(arr[i]);
-        }
-        if (Arrays.binarySearch(arr, number)>0) {
+        } if (Arrays.binarySearch(arr, number)>0) {
             System.out.println("The entered number is present in the array under " + Arrays.binarySearch(arr, number) + " index");
         } else {
             System.out.println("The entered number is not in the array");
