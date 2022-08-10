@@ -10,8 +10,10 @@ public class ExerciseInClassTwo {
                 } else {
                     arr[i][j] = "B";
                 }
+                //System.out.println(Arrays.toString(arr[i])); //Вывод как массив с квадратными скобками
+                System.out.print(arr[i][j] + " ");
             }
-            System.out.println(Arrays.toString(arr[i]));
+            System.out.println();
         }
     }
 }
