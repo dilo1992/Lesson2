@@ -28,7 +28,7 @@ public class MinMaxAverageNumber {
         System.out.println("The min number in an array is " + min);
         int summ = 0;
         for (int i = 0; i < arr.length; i++) {
-            summ = summ + arr[i];
+            summ += arr[i];
         }
         float average = (float) summ / arrSize;
         System.out.println("The average number in an array is " + average);
