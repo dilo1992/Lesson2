@@ -13,10 +13,10 @@ public class SecondArrayOfEven {
                         "Enter a value elements of the array again (6..10): ");
                 n = scanner.nextInt();
             } else break;
-        } while (n < 5 || n >= 10);
+        } while (true);  //(n < 5 || n >= 10);
         int[] arr = new int[n];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = new Random().nextInt(0,10);
+            arr[i] = new Random().nextInt(10);
         }
         System.out.println("The array is " + Arrays.toString(arr));
         int j = 0;
