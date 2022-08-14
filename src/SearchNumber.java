@@ -14,15 +14,16 @@ public class SearchNumber {
         }
         int j = 0;
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = new Random().nextInt(0, 10);
+            arr[i] = new Random().nextInt(10);
             if (arr[i] == number) {
-                j = j + 1;
+                j++;
             }
-        }   if (j>0){
-                System.out.print("The entered number is present in the array "+j+" once.");
-            } else if (j==0){
-                System.out.println("The entered number is not in the array");
-            }
+        }
+        if (j > 0) {
+            System.out.print("The entered number is present in the array " + j + " once.");
+        } else {
+            System.out.println("The entered number is not in the array");
+        }
         System.out.println(Arrays.toString(arr));
     }
 }
