@@ -14,22 +14,23 @@ public class ArrayWithoutOurNumber {
             return;
         }
         int j = 0;
-        arr[0] = new Random().nextInt(0, 10);
-        arr[1] = new Random().nextInt(0, 10);
-        arr[2] = new Random().nextInt(0, 10);
-        arr[3] = new Random().nextInt(0, 10);
-        arr[4] = new Random().nextInt(0, 10);
+        arr[0] = new Random().nextInt(10);
+        arr[1] = new Random().nextInt(10);
+        arr[2] = new Random().nextInt(10);
+        arr[3] = new Random().nextInt(10);
+        arr[4] = new Random().nextInt(10);
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != number) {
+            if (arr[i] == number) continue;
+            else {
                 j++;
             }
         }
         System.out.println(Arrays.toString(arr));
         int[] arr2 = new int[j];
         int k = 0;
-        for (int x = 0; x < arr.length; x++) {
-            if (arr[x] != number) {
-                arr2[k] = arr[x];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != number) {
+                arr2[k] = arr[i];
                 k++;
             }
         }
