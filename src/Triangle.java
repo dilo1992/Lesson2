@@ -2,7 +2,6 @@ public class Triangle extends Figure {
     int a;
     int b;
     int c;
-    int height;
 
     public Triangle(int a, int b, int c) {
         this.a = a;
@@ -13,11 +12,6 @@ public class Triangle extends Figure {
     @Override
     public int getPerimeter() {
         return a + b + c;
-    }
-
-    public Triangle(int c, int height) {
-        this.c = c;
-        this.height = height;
     }
 
     @Override
