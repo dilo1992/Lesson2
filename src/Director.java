@@ -1,9 +1,12 @@
 public class Director implements Workable {
-    public static void main(String[] args) {
-        @Override
-        public void work() {
-            System.out.println("This is Director");
-            ;
-        }
+    String director = "director";
+
+    public Director() {
+        this.director = director;
+    }
+
+    @Override
+    public void work() {
+        System.out.println("He/She is " + this.director);
     }
 }
