@@ -36,7 +36,7 @@ public class ExerciseThree {
                     ostatok %= 50;
                 } while (ostatok > 60);
                 removetwenty = ostatok / 20;
-                if (ostatok % 20==0) {
+                if (ostatok % 20 == 0) {
                     System.out.println("You took " + removeSum + "$: " + removeOneHundred +
                             " denomination banknots 100$, " + removefifty +
                             " denomination banknots 50$, " + removetwenty +
@@ -44,20 +44,7 @@ public class ExerciseThree {
                 } else {
                     System.out.println("You can`t withdraw money!");
                 }
-
-//        }
-    }
-//        if(sum >=removesum)
-//
-//    {
-//        int j = 0;
-//        do {
-//            int i = removesum - 100;
-//            j++;
-//        } while (removesum >= 100 && j < oneHundred);
-
             }
         }
-
-
     }
+}
