@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Triangle {
 
     //перечисляем три свойства класса и доступность (public, private)
@@ -17,11 +18,20 @@ public class Triangle {
     }
 
     public Triangle(double a, double b, double c) {
+=======
+public class Triangle extends Figure {
+    int a;
+    int b;
+    int c;
+
+    public Triangle(int a, int b, int c) {
+>>>>>>> classwork/lesson-7
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
+<<<<<<< HEAD
     public double getPerimeter() {
         return this.a + this.b + this.c;
     }
@@ -66,5 +76,15 @@ public class Triangle {
         this.a++;
         this.b++;
         this.c++;
+=======
+    @Override
+    public int getPerimeter() {
+        return a + b + c;
+    }
+
+    @Override
+    public int getArea() {
+        return (int) 2 * getPerimeter() / c;
+>>>>>>> classwork/lesson-7
     }
 }
