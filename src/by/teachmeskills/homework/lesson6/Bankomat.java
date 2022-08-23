@@ -1,3 +1,5 @@
+package by.teachmeskills.homework.lesson6;
+
 public class Bankomat {
     private int twenty;
     private int fifty;
@@ -10,7 +12,7 @@ public class Bankomat {
     }
 
     public void addMoney(int addTwenty, int addFifty, int addOneHundred) {
-        this.twenty = +addTwenty;
+        this.twenty += addTwenty;
         this.fifty += addFifty;
         this.oneHundred += addOneHundred;
     }
