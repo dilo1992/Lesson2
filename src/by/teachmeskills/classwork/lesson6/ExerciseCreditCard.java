@@ -1,3 +1,5 @@
+import by.teachmeskills.classwork.lesson6.CreditCard;
+
 public class ExerciseCreditCard {
     public static void main(String[] args) {
         CreditCard card1 = new CreditCard("First", 100);
