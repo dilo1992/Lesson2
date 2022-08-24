@@ -33,7 +33,7 @@ public class MainClass {
     private static Client getClient() {
         Random r = new Random();
         int nextValue = r.nextInt(4);
-        Client client = new Client("Fedor"+nextValue);
+        Client client = new Client("Fedor of the programm number "+nextValue);
         MedicalPlan medicalPlan=new MedicalPlan(nextValue);
         client.setMedicalPlan(medicalPlan);
         //client.setMedicalPlan(new MedicalPlan(1)); - можем вместо двух строчек выше записать так
