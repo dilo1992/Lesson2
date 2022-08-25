@@ -1,4 +1,4 @@
-package by.teachmeskills.homework.lesson7;
+package by.teachmeskills.homework.lesson7.exercise3;
 
 public class Register {
     private int position;
@@ -12,7 +12,7 @@ public class Register {
     /**
      * add document to our registry
      *
-     * @param document - any type of Document
+     * @param document - any type of ContractWithWorker
      */
     public void addDocument(Document document) {
         if (position < arr.length) {
