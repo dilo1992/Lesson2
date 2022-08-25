@@ -18,60 +18,61 @@ public class ExerciseThree {
         int removeTwenty = 0, removeTwentyTwo = 0, removeTwentyThree = 0; //число снимаемых купюр 20$
         int removeFifty = 0, removeFiftyTwo = 0;    //число снимаемых купюр 50$
         int removeOneHundred = 0;   //число снимаемых купюр 100$
-        int ostatok = 0;    //переходящий остаток в методах выше 40$
-        int limit = 0;  //для лимита 110 или 130
+        int ostatok;    //переходящий остаток в методах выше 40$
+        int limit;  //для лимита 110 или 130
         if (removeSum % 10 != 0 || removeSum > sum) {
-            do {
-                System.out.print("This operation isn`t done!");
-                return;
-            } while (true);
+            System.out.print("This operation isn`t done!");
+            return;
         }
         if (removeSum < 40 && removeSum != 20) {
-            do {
-                System.out.print("This operation isn`t done!");
-                return;
-            } while (true);
+            System.out.print("This operation isn`t done!");
+            return;
         }
         if (removeSum == 20) {
             removeTwenty = 1;
             if (removeTwenty > twenty) {
+                removeTwenty = 0;
                 System.out.println("This operation isn`t done (don`t have 20$ cash)");
-            } else removeTwenty = 1;
+                return;
+            }
         }
         if (removeSum >= 40 & removeSum <= 100) {
-            do {
-                removeOneHundred = removeSum / 100;
-                if (removeOneHundred > oneHundred) {
-                    removeFifty = (removeSum / 100) * 2;
-                    if (removeFifty > fifty) {
-                        removeTwenty = (removeSum / 100) * 5;
-                        if (removeTwenty > twenty) {
-                            System.out.println("This operation isn`t done (don`t have 20$ cash)");
-                        }
-                    }
-                }
-                ostatok = removeSum % 100;
-                if (ostatok < 100 && ostatok % 20 == 0 && removeSum != 100) {
-                    removeTwentyTwo = ostatok / 20;
-                    if ((removeTwentyTwo + removeTwenty) > twenty) {
-                        System.out.println("This operation isn`t done (don`t have 20$ cash)");
-                        break;
-                    }
-                } else {
-                    removeFiftyTwo = ostatok / 50;
-                    if ((removeFiftyTwo + removeFifty) > fifty) {
-                        System.out.println("This operation isn`t done (don`t have 50$ cash)");
-                        break;
-                    }
-                    ostatok = ostatok % 50;
-                    removeTwentyThree = ostatok / 20;
-                    removeTwenty = +removeTwentyTwo + removeTwentyThree;
+            removeOneHundred = removeSum / 100;
+            if (removeOneHundred > oneHundred) {
+                removeOneHundred = oneHundred;
+                removeFifty = ((removeSum - removeOneHundred * 100) / 100) * 2;
+                if (removeFifty > fifty) {
+                    removeFifty = fifty;
+                    removeTwenty = ((removeSum - removeOneHundred - removeFifty) / 100) * 5;
                     if (removeTwenty > twenty) {
                         System.out.println("This operation isn`t done (don`t have 20$ cash)");
-                        break;
+                        return;
                     }
                 }
-            } while (true);
+            }
+            ostatok = removeSum % 100;
+            if (ostatok % 20 == 0 && removeSum != 100) {
+                removeTwentyTwo = ostatok / 20;
+                if ((removeTwentyTwo + removeTwenty) > twenty) {
+                    removeTwentyTwo = 0;
+                    System.out.println("This operation isn`t done (don`t have 20$ cash)");
+                    return;
+                }
+            } else {
+                removeFiftyTwo = ostatok / 50;
+                if ((removeFiftyTwo + removeFifty) > fifty) {
+                    removeFiftyTwo = 0;
+                    System.out.println("This operation isn`t done (don`t have 50$ cash)");
+                    return;
+                }
+                ostatok = ostatok % 50;
+                removeTwentyThree = ostatok / 20;
+                if ((removeTwenty + removeTwentyTwo + removeTwentyThree) > twenty) {
+                    removeTwentyThree = 0;
+                    System.out.println("This operation isn`t done (don`t have 20$ cash)");
+                    return;
+                }
+            }
         }
         if (removeSum > 100 && (removeSum % 100 == 10 || removeSum % 100 == 30)) {
             removeOneHundred = removeSum / 100;
@@ -81,6 +82,7 @@ public class ExerciseThree {
                     removeTwenty = (removeSum / 100) * 5;
                     if (removeTwenty > twenty) {
                         System.out.println("This operation isn`t done (don`t have 20$ cash)");
+                        return;
                     }
                 }
             }
@@ -93,18 +95,61 @@ public class ExerciseThree {
             }
             removeTwentyTwo = ostatok / 20;
             if ((removeTwenty + removeTwentyTwo) > twenty) {
+                removeFiftyTwo = 0;
+                removeTwentyTwo = 0;
                 System.out.println("This operation isn`t done (don`t have 20$ cash)");
+                return;
             }
             if (limit == 130) {
-                do {
-                    removeFiftyTwo = ostatok / 50;
-                    ostatok %= 50;
-                } while (ostatok != 80);
-                removeTwentyTwo = ostatok / 20;
+                removeOneHundred -= 1;
+                removeFiftyTwo = 1;
+                ostatok = 80;
             }
-        }
-        else if (removeSum > 100){
+            removeTwentyTwo = ostatok / 20;
+            if ((removeTwenty + removeTwentyTwo) > twenty) {
+                removeFiftyTwo = 0;
+                removeTwentyTwo = 0;
+                System.out.println("This operation isn`t done (don`t have 20$ cash)");
+                return;
+            }
 
+        } else if (removeSum > 100 && (removeSum % 100 != 10 || removeSum % 100 != 30)) {
+            removeOneHundred = removeSum / 100;
+            if (removeOneHundred > oneHundred) {
+                removeOneHundred = oneHundred;
+                removeFifty = ((removeSum - removeOneHundred * 100) / 100) * 2;
+                if (removeFifty > fifty) {
+                    removeFifty = fifty;
+                    removeTwenty = ((removeSum - removeOneHundred - removeFifty) / 100) * 5;
+                    if (removeTwenty > twenty) {
+                        System.out.println("This operation isn`t done (don`t have 20$ cash)");
+                        return;
+                    }
+                }
+            }
+            ostatok = removeSum % 100;
+            if (ostatok % 20 == 0) {
+                removeTwentyTwo = ostatok / 20;
+                if ((removeTwentyTwo + removeTwenty) > twenty) {
+                    removeTwentyTwo = 0;
+                    System.out.println("This operation isn`t done (don`t have 20$ cash)");
+                    return;
+                }
+            } else {
+                removeFiftyTwo = ostatok / 50;
+                if ((removeFiftyTwo + removeFifty) > fifty) {
+                    removeFiftyTwo = 0;
+                    System.out.println("This operation isn`t done (don`t have 50$ cash)");
+                    return;
+                }
+                ostatok = ostatok % 50;
+                removeTwentyThree = ostatok / 20;
+                if ((removeTwenty + removeTwentyTwo + removeTwentyThree) > twenty) {
+                    removeTwentyThree = 0;
+                    System.out.println("This operation isn`t done (don`t have 20$ cash)");
+                    return;
+                }
+            }
         }
         if ((removeOneHundred + (removeFifty + removeFiftyTwo) + (removeTwenty + removeTwentyTwo + removeTwentyThree)) > 0) {
             System.out.println("You took " + removeSum + "$: " + removeOneHundred +
