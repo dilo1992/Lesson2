@@ -1,24 +1,21 @@
 package by.teachmeskills.homework.lesson7.exercise3;
 
-import java.util.Calendar;
 
 public class SupplyContract extends Document implements Printable {
     private String type;
     private int quantity;
 
-//    public SupplyContract() {
-//    }
-
-    public SupplyContract(int documentNumber, Calendar calendar, String type, int quantity) {
-        super.setDocumentNumber(documentNumber);
-        //super.setCalendar(calendar);
+    public SupplyContract(int documentNumber, int year, int month, int dayOfMonth, String type, int quantity) {
         this.type = type;
         this.quantity = quantity;
+        super.setDocumentNumber(documentNumber);
+        super.setDate(setYear(year), setMonth(month), setDayOfMonth(dayOfMonth));
     }
 
     @Override
     public void print() {
-        System.out.println("This is supply contract");
+        System.out.println("This is supply contract.\n" + "Document number: " + getDocumentNumber() +
+                " , date of create: " + super.getDate() + " , type: " + getType() + " , quantity: " + getQuantity());
     }
 
     public String getType() {
