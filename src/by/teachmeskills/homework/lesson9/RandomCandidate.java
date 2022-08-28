@@ -7,11 +7,11 @@ public class RandomCandidate {
         return random;
     }
 
-    public static int setRandom() {
-        return random++;
+    public static void addOneVote() {
+        random++;
     }
 
-    public static void setRandomResult(int random) {
+    public static void setRandom(int random) {
         RandomCandidate.random = random;
     }
 }

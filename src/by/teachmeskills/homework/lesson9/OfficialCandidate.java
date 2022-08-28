@@ -7,11 +7,11 @@ public class OfficialCandidate {
         return official;
     }
 
-    public static void setOfficial() {
+    public static void addOneVote() {
         official++;
     }
 
-    public static void setOfficialResult(int official) {
+    public static void setOfficial(int official) {
         OfficialCandidate.official = official;
     }
 }

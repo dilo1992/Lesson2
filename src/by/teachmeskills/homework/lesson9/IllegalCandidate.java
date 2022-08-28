@@ -7,11 +7,11 @@ public class IllegalCandidate {
         return illegal;
     }
 
-    public static int setIllegal() {
-        return illegal++;
+    public static void addOneVote() {
+        illegal++;
     }
 
-    public static void setIllegalResult(int illegal) {
+    public static void setIllegal(int illegal) {
         IllegalCandidate.illegal = illegal;
     }
 }

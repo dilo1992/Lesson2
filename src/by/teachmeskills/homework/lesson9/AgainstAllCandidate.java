@@ -1,7 +1,5 @@
 package by.teachmeskills.homework.lesson9;
 
-import static by.teachmeskills.homework.lesson9.Voter.*;
-
 public class AgainstAllCandidate {
     private static int againstAll = 0;
 
@@ -9,10 +7,10 @@ public class AgainstAllCandidate {
         return againstAll;
     }
 
-    public static void setAgainstAll() {
+    public static void addOneVote() {
         againstAll++;
     }
-    public static void setAgainstAllResult(int againstAll) {
+    public static void setAgainstAll(int againstAll) {
         AgainstAllCandidate.againstAll = againstAll;
     }
 }
