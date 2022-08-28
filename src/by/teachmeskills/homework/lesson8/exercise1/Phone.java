@@ -1,21 +1,13 @@
 package by.teachmeskills.homework.lesson8.exercise1;
 
+import java.util.Arrays;
+
 public abstract class Phone implements Printable {
     private int number;
     private String model;
     private int weight;
-    private String name;
-
-    public void recieveCall (String name) {
-        this.name = name;
-        System.out.println("Called {"+name+" }");
-    }
-
-    public void recieveCall(String name, int number){
-        this.name = name;
-        this.number = number;
-        System.out.println("Called {"+name+" } "+number);
-    }
+    private String callerName;
+    private int callerNumber;
 
     public Phone() {
     }
@@ -28,6 +20,21 @@ public abstract class Phone implements Printable {
     public Phone(int number, String model, int weight) {
         this(number,model);
         this.weight = weight;
+    }
+
+    public void recieveCall (String callerName) {
+        this.callerName = callerName;
+        System.out.println("Called {"+callerName+"}");
+    }
+
+    public void recieveCall(String callerName, int callerNumber){
+        this.callerName = callerName;
+        this.callerNumber = callerNumber;
+        System.out.println("Called {"+callerName+"} "+"number "+callerNumber);
+    }
+
+    public void sendMessage(int...numbers){
+        System.out.println("Called numbers: "+Arrays.toString(numbers));
     }
 
     public int getNumber() {
@@ -54,11 +61,19 @@ public abstract class Phone implements Printable {
         this.weight = weight;
     }
 
-    public String getName() {
-        return name;
+    public String getCallerName() {
+        return callerName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCallerName(String callerName) {
+        this.callerName = callerName;
+    }
+
+    public int getCallerNumber() {
+        return callerNumber;
+    }
+
+    public void setCallerNumber(int callerNumber) {
+        this.callerNumber = callerNumber;
     }
 }

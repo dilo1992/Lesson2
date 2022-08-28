@@ -7,7 +7,7 @@ public class ThirdPhone extends Phone implements Printable{
 
     @Override
     public void print(){
-        System.out.println("Number: "+getNumber()+", model: "+getModel()+ " ,name: "+getName());
+        System.out.println("Number: "+getNumber()+", model: "+getModel()+ " ,name: "+ getCallerName());
     }
 
     @Override
@@ -31,12 +31,12 @@ public class ThirdPhone extends Phone implements Printable{
     }
 
     @Override
-    public String getName() {
+    public String getCallerName() {
         return name;
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
+    public void setCallerName(String callerName) {
+        this.name = callerName;
     }
 }

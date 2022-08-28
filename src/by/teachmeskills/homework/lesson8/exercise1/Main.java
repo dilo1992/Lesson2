@@ -13,5 +13,9 @@ public class Main {
         secondPhone.getNumber();
         thirdPhone.getNumber();
 
+        firstPhone.recieveCall("David",3);
+
+        secondPhone.sendMessage(12,25,96,108,20);
+
     }
 }
