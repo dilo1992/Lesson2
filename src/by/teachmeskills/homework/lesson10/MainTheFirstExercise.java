@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static by.teachmeskills.homework.lesson10.TheFirstExercise.*;
 
-public class Main {
+public class MainTheFirstExercise {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("You`re need enter the number of a document " +
@@ -14,5 +14,8 @@ public class Main {
         letterToStar(str);
         lettersToLowerCase(str);
         lettersToUpperWithStringBuilder(str);
+        charOccurrence(str);
+        startNumberCheck(str);
+        endNumberCheck(str);
     }
 }

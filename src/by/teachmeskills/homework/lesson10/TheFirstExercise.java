@@ -3,9 +3,8 @@ package by.teachmeskills.homework.lesson10;
 public class TheFirstExercise {
 
     public static void digitOutput(String str) {
-        String digitBlock = str;
-        String[] digitBlockArr = digitBlock.split("-");
-        System.out.println(String.valueOf(digitBlockArr[0]) + String.valueOf(digitBlockArr[2]));
+        String[] digitBlockArr = str.split("-");
+        System.out.println((digitBlockArr[0]) + (digitBlockArr[2]));
     }
 
     public static void letterToStar(String str) {
@@ -16,8 +15,7 @@ public class TheFirstExercise {
     }
 
     public static void lettersToLowerCase(String str) {
-        String lettersToLowerCase = str;
-        String[] lettersToLowerCaseArr = lettersToLowerCase.split("-");
+        String[] lettersToLowerCaseArr = str.split("-");
         System.out.println(String.valueOf(lettersToLowerCaseArr[1]).toLowerCase() + "/"
                 + String.valueOf(lettersToLowerCaseArr[3]).toLowerCase() +
                 "/" + String.valueOf(lettersToLowerCaseArr[4]).toLowerCase().charAt(1) + "/" +
@@ -28,7 +26,21 @@ public class TheFirstExercise {
         String lettersToUpperWithStringBuilder = str;
         lettersToUpperWithStringBuilder = lettersToUpperWithStringBuilder.toUpperCase();
         StringBuilder sb = new StringBuilder(lettersToUpperWithStringBuilder);
-        System.out.println("Letters: "+sb.substring(5,8)+"/"+sb.substring(14,17)+"/"+
-                sb.charAt(19)+"/"+sb.charAt(21));
-        }
+        System.out.println("Letters: " + sb.substring(5, 8) + "/" + sb.substring(14, 17) + "/" +
+                sb.charAt(19) + "/" + sb.charAt(21));
+    }
+
+    public static void charOccurrence(String str) {
+        String charOccurrence = str.toLowerCase();
+        System.out.println(charOccurrence.contains("abc"));
+    }
+
+    public static void startNumberCheck(String str) {
+        System.out.println(str.startsWith("555"));
+    }
+
+    public static void endNumberCheck(String str) {
+        String endNumberCheck = str.toLowerCase();
+        System.out.println(endNumberCheck.endsWith("1a2b"));
+    }
 }
