@@ -5,7 +5,7 @@ public class TheFifthExercise {
         String str2 = "";
         for (int i = 0; i < str.length(); i++) {
             String doubleStr = String.valueOf(str.charAt(i)) + str.charAt(i);
-            str2 = str2 + doubleStr;
+            str2 += doubleStr;
         }
         System.out.println(str2);
     }
