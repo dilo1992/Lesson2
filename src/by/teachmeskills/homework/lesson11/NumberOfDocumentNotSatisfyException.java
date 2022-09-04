@@ -1,7 +1,7 @@
 package by.teachmeskills.homework.lesson11;
 
-public class NumberOfDocumentNotSatisfyExeption extends Exception {
-    public NumberOfDocumentNotSatisfyExeption() {
+public class NumberOfDocumentNotSatisfyException extends Exception {
+    public NumberOfDocumentNotSatisfyException() {
         super("Entered data don`t satisfy the condition of document");
     }
 }

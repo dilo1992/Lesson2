@@ -2,7 +2,7 @@ package by.teachmeskills.homework.lesson11;
 
 import java.util.Scanner;
 
-public class MainTheSecondExerciseOfLesson11 {
+public class MainLoginPasswordChecker {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Login: ");

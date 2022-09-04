@@ -1,7 +1,7 @@
 package by.teachmeskills.homework.lesson11;
 
 
-public class TheSecondExerciseOfLesson11 {
+public class LoginPasswordChecker {
     public static boolean checkLogin(String login) throws WrongLoginException {
         if (login.length() >= 20) {
             System.out.println("Too many symbols in this login");
