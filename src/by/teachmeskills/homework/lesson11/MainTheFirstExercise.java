@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static by.teachmeskills.homework.lesson11.TheFirstExercise.*;
 
 public class MainTheFirstExercise {
-    public static void main(String[] args) throws NumberOfDocumentNotSatisfyTheCondition {
+    public static void main(String[] args) throws NumberOfDocumentNotSatisfyExeption {
         Scanner scanner = new Scanner(System.in);
         System.out.print("You`re need enter the number of a document " +
                 "(xxxx-yyy-xxxx-yyy-xyxy, where X is letter, Y is number). Your number is: ");
@@ -13,7 +13,7 @@ public class MainTheFirstExercise {
 
         try {
             charOccurrence(str);
-        } catch (NumberOfDocumentNotSatisfyTheCondition e) {
+        } catch (NumberOfDocumentNotSatisfyExeption e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
             System.out.println("Try to find this phrase with another document");
@@ -21,7 +21,7 @@ public class MainTheFirstExercise {
 
         try {
             startNumberCheck(str);
-        } catch (NumberOfDocumentNotSatisfyTheCondition e) {
+        } catch (NumberOfDocumentNotSatisfyExeption e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
             System.out.println("Try to find this numbers with another document");
@@ -29,7 +29,7 @@ public class MainTheFirstExercise {
 
         try {
             endNumberCheck(str);
-        } catch (NumberOfDocumentNotSatisfyTheCondition e) {
+        } catch (NumberOfDocumentNotSatisfyExeption e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
             System.out.println("try to find this ending with another document");

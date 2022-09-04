@@ -1,13 +1,13 @@
 package by.teachmeskills.homework.lesson10;
 
 import java.util.Scanner;
-import static by.teachmeskills.homework.lesson10.TheThirdExercise.*;
+import static by.teachmeskills.homework.lesson10.MinQuantitySymbols.*;
 
-public class MainTheThirdExercise {
+public class MainMinQuantitySymbols {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your phrase: ");
         String str = scanner.nextLine();
-        minSymbols(str);
+        printMinSymbols(str);
     }
 }

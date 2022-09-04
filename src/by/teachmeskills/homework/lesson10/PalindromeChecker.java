@@ -2,8 +2,8 @@ package by.teachmeskills.homework.lesson10;
 
 import java.util.Scanner;
 
-public class TheFourthExercise {
-    public static void palindrome(String str) {
+public class PalindromeChecker {
+    public static void printPalindrome(String str) {
         String[] arr = str.toLowerCase().trim().split(" ");
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number of a word that can be is palindrome: ");
@@ -19,7 +19,7 @@ public class TheFourthExercise {
             number = scanner.nextInt();
         }
         StringBuilder sb = new StringBuilder(arr[number - 1].toString());
-        if ((sb.toString()).equals(sb.reverse().toString()) == true) {
+        if ((sb.toString()).equals(sb.reverse().toString())) {
             System.out.println("It`s true. This word is palindrome!");
         } else {
             System.out.println("This word isn`t palindrome.");

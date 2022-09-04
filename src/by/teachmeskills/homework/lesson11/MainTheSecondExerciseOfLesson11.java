@@ -9,7 +9,9 @@ public class MainTheSecondExerciseOfLesson11 {
         String login = scanner.nextLine();
         System.out.println("Password: ");
         String password = scanner.nextLine();
+        System.out.println("Confirm password: ");
         String confirmPassword = scanner.nextLine();
+        System.out.println(Integer.parseInt(password));
 
 
     }

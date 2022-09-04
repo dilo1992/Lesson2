@@ -1,7 +1,7 @@
 package by.teachmeskills.homework.lesson10;
 
-public class TheThirdExercise {
-    public static void minSymbols(String str) {
+public class MinQuantitySymbols {
+    public static void printMinSymbols(String str) {
         str = str.trim();
         String[] arr = str.split(" ");
         StringBuilder restr = new StringBuilder("" + str.charAt(0));
