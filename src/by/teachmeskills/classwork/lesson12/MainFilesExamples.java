@@ -32,5 +32,9 @@ public class Main1 {
         for (File currentFile: file.listFiles()) {        //цикл выводит имена всех файлов, которые есть в нашей папке
             System.out.println(currentFile.getName());
         }
+
+        for (File currentFile: file.listFiles(new MyFileFilter())) {
+            System.out.println(currentFile.getName());
+        }
     }
 }
