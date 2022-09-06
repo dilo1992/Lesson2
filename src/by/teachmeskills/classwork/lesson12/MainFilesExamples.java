@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class Main1 {
+public class MainFilesExamples {
     public static void main(String[] args) {
         File file = new File("D:\\TMS\\TeachMeSkills"); //если вводить с адресом размещения - то относительный путь к файлу
                                                     // в нашем случае абсолютный - как место берется адрес нашего проекта
