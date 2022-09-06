@@ -15,24 +15,18 @@ public class MainDocNumberCheckerWithException {
             printCharOccurrence(str);
         } catch (NumberOfDocumentNotSatisfyException e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("Try to find this phrase with another document");
         }
 
         try {
             printStartNumberCheck(str);
         } catch (NumberOfDocumentNotSatisfyException e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("Try to find this numbers with another document");
         }
 
         try {
             printEndNumberCheck(str);
         } catch (NumberOfDocumentNotSatisfyException e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("try to find this ending with another document");
         }
     }
 }
