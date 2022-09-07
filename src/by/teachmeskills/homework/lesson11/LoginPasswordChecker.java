@@ -46,14 +46,14 @@ public class LoginPasswordChecker {
             } catch (NumberFormatException e) {
                 continue;
             }
-            if (count == 0) {
-                System.out.println("Password must contain at least one digit");
-                throw new WrongPasswordException(password);
-            } else {
-                return true;
-            }
         }
-        return true;
+        if (count == 0) {
+            System.out.println("Password must contain at least one digit");
+            throw new WrongPasswordException(password);
+        } else {
+            return true;
+        }
+        //return true;
     }
 }
 
