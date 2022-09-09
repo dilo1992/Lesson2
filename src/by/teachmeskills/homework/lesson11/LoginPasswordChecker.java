@@ -1,10 +1,9 @@
 package by.teachmeskills.homework.lesson11;
 
 
-import java.sql.SQLOutput;
-
 public class LoginPasswordChecker {
-    public static boolean checkLogin(String login) throws WrongLoginException {
+
+    public static boolean checkLoginAndPassword(String login, String password, String confirmPassword) throws WrongLoginException, NumberFormatException, WrongPasswordException {
         if (login.length() >= 20) {
             System.out.println("Too many symbols in this login");
             throw new WrongLoginException(login);
@@ -17,10 +16,7 @@ public class LoginPasswordChecker {
             System.out.println("Login can`t contain spaces");
             throw new WrongLoginException(login);
         }
-        return true;
-    }
 
-    public static boolean checkPassword(String password, String confirmPassword) throws WrongPasswordException, NumberFormatException {
         if (!(password.equals(confirmPassword))) {
             System.out.println("Fields password and confirm password must be the same");
             throw new WrongPasswordException(password);
@@ -50,12 +46,11 @@ public class LoginPasswordChecker {
         if (count == 0) {
             System.out.println("Password must contain at least one digit");
             throw new WrongPasswordException(password);
-        } else {
-            return true;
         }
-        //return true;
+        return true;
     }
 }
+
 
 
 

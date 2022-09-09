@@ -13,8 +13,6 @@ public class MainLoginPasswordChecker {
         String password = scanner.nextLine();
         System.out.println("Confirm password: ");
         String confirmPassword = scanner.nextLine();
-        //System.out.println(Integer.parseInt(password));
-        System.out.println(checkLogin(login));
-        System.out.println(checkPassword(password,confirmPassword));
+        System.out.println(checkLoginAndPassword(login,password,confirmPassword));
     }
 }
