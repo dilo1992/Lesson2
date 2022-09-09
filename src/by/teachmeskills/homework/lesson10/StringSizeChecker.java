@@ -1,8 +1,8 @@
 package by.teachmeskills.homework.lesson10;
 
 
-public class TheSecondExercise {
-    public static void minLength(String str) {
+public class StringSizeChecker {
+    public static void printMinLength(String str) {
         String[] arr = str.split(" ");
         String arr2 = arr[0];
         for (String el : arr) {
@@ -12,7 +12,7 @@ public class TheSecondExercise {
         System.out.println("The string with the smallest length: " + arr2);
     }
 
-    public static void maxLength(String str) {
+    public static void printMaxLength(String str) {
         String[] arr = str.split(" ");
         String arr2 = " ";
         for (String el : arr) {
