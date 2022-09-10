@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 public class FileCompletion {
-    public static void main(String[] args) throws WrongNumberException, IOException {
+    public static void main(String[] args) throws IOException {
         try (FileWriter fileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\DocumentNumbers.txt")) {
             System.out.println("Enter a number of the document. The number must starts " +
                     "'docnum' or 'contract' and contain digits, and length no more 15 characters");
@@ -31,11 +31,11 @@ public class FileCompletion {
             while (scanner.hasNextLine()) {
                 String couse = null;
                 String valid = scanner.nextLine();
-                boolean a = (valid.toLowerCase().indexOf("docnum") == 0 || valid.toLowerCase().indexOf("contract") == 0) && valid.length() <= 15;
+                boolean a = (valid.toLowerCase().indexOf("docnum") == 0 || valid.toLowerCase().indexOf("contract") == 0) && valid.length() == 15;
                 if (a) {
                     try {
                         FileWriter fileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\ValidDocumentNumbers.txt", true);
-                        fileWriter.write(valid + "\n");
+                        fileWriter.write(valid.toLowerCase() + "\n");
                         fileWriter.close();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -43,27 +43,25 @@ public class FileCompletion {
                 } else {
                     try {
                         FileWriter fileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\InvalidDocumentNumbers.txt", true);
-                        boolean b = (valid.toLowerCase().indexOf("docnum") != 0 || valid.toLowerCase().indexOf("contract") != 0);
-                        if (b && valid.length() > 15) {
-                            couse = "this document number doesn`t start at 'docnum' or 'contract' and too long";
+                        boolean b = (valid.toLowerCase().indexOf("docnum") != 0 && valid.toLowerCase().indexOf("contract") != 0);
+                        if (b && valid.length() != 15) {
+                            couse = "this document number doesn`t start at 'docnum' or 'contract' and no specified length";
                         } else if (b) {
                             couse = "this document number doesn`t start at 'docnum' or 'contract'";
-                        } else if (valid.length() > 15) {
-                            couse = "this document number too long (more than 15 symbols)";
+                        } else if (valid.length() != 15) {
+                            couse = "this document number no specified length (must be 15 symbols)";
                         }
-                        fileWriter.write(valid + "\t" + couse + "\n");
+                        fileWriter.write(valid.toLowerCase() + "\t" + couse + "\n");
                         fileWriter.close();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
             }
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             System.out.println("EXIT NEED");
             throw new RuntimeException(e);
-        } catch (
-                Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         System.out.println("The data sorted!");
