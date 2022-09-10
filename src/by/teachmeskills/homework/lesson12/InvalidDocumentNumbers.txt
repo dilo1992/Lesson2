@@ -1,0 +1,74 @@
+
+2022-09-10T21:31:28.246841
+
+docnum222222222222	this document number doesn`t start at 'docnum' or 'contract' and too long
+DOCnum111111111	this document number doesn`t start at 'docnum' or 'contract'
+Contract12312412512512512	this document number doesn`t start at 'docnum' or 'contract' and too long
+gjwegjnwegjnw;lejn;wh	this document number doesn`t start at 'docnum' or 'contract' and too long
+nwnwehklmwebbbb	this document number doesn`t start at 'docnum' or 'contract'
+ljnweklgjnwekjnwe	this document number doesn`t start at 'docnum' or 'contract' and too long
+lwnlnweh111	this document number doesn`t start at 'docnum' or 'contract'
+
+2022-09-10T21:35:01.592316100
+
+docnum222222222222	this document number doesn`t start at 'docnum' or 'contract' and too long
+contract12312412512512512	this document number doesn`t start at 'docnum' or 'contract' and too long
+gjwegjnwegjnw;lejn;wh	this document number doesn`t start at 'docnum' or 'contract' and too long
+nwnwehklmwebbbb	this document number doesn`t start at 'docnum' or 'contract'
+ljnweklgjnwekjnwe	this document number doesn`t start at 'docnum' or 'contract' and too long
+lwnlnweh111	this document number doesn`t start at 'docnum' or 'contract'
+
+2022-09-10T21:39:01.228306400
+
+docnum222222222222	this document number doesn`t start at 'docnum' or 'contract' and too long
+contract12312412512512512	this document number doesn`t start at 'docnum' or 'contract' and too long
+gjwegjnwegjnw;lejn;wh	this document number doesn`t start at 'docnum' or 'contract' and too long
+nwnwehklmwebbbb	this document number doesn`t start at 'docnum' or 'contract'
+ljnweklgjnwekjnwe	this document number doesn`t start at 'docnum' or 'contract' and too long
+lwnlnweh111	this document number doesn`t start at 'docnum' or 'contract'
+
+2022-09-10T23:03:45.931142800
+
+docnum222222222222	this document number doesn`t start at 'docnum' or 'contract' and too long
+contract12312412512512512	this document number doesn`t start at 'docnum' or 'contract' and too long
+gjwegjnwegjnw;lejn;wh	this document number doesn`t start at 'docnum' or 'contract' and too long
+nwnwehklmwebbbb	this document number doesn`t start at 'docnum' or 'contract'
+ljnweklgjnwekjnwe	this document number doesn`t start at 'docnum' or 'contract' and too long
+wnlnweh111	this document number doesn`t start at 'docnum' or 'contract'
+
+2022-09-10T23:08:23.332317400
+
+docnum222222222222	this document number too long (more than 15 symbols)
+contract12312412512512512	this document number too long (more than 15 symbols)
+gjwegjnwegjnw;lejn;wh	this document number doesn`t start at 'docnum' or 'contract' and too long
+nwnwehklmwebbbb	this document number doesn`t start at 'docnum' or 'contract'
+jnrgj;nr;hjenrh	this document number doesn`t start at 'docnum' or 'contract'
+er;hjner;lhjner;lnhe	this document number doesn`t start at 'docnum' or 'contract' and too long
+
+2022-09-10T23:15:29.005592600
+
+docnum33333333	this document number no specified length (must be 15 symbols)
+contract	this document number no specified length (must be 15 symbols)
+gl;jn;hlgner;hlkner;hlk	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+erlkmer'h;kme';rkmh;erh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+contract222222222222	this document number no specified length (must be 15 symbols)
+g;kmrh'kmerlhm	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+dfbjdnf;enrh;jnerh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+nerhne;lrhnlerkh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+lejrnh;enrhj	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+erhjnerjnh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+erjnerhnerh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+ljenrnerlnh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+ljenrhlnelrknh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+lkenrhlnerh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+
+2022-09-10T23:35:05.514710
+
+;kjner;hjnerh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+lkenrhlnerlhknelknrh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+lknerlhnelrh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+lknerlhnelrnhleknrh	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+lenrlhnelrkhne	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+kenrhlnelrhne	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+kenrlhnelrhk	this document number doesn`t start at 'docnum' or 'contract' and no specified length
+lenrlhnelrh	this document number doesn`t start at 'docnum' or 'contract' and no specified length

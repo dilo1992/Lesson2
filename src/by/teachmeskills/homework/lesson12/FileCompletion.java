@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class FileCompletion {
     public static void main(String[] args) throws IOException {
-        try (FileWriter fileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\DocumentNumbers.txt")) {
+        try (FileWriter fileWriter = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson12\\DocumentNumbers.txt")) {
             System.out.println("Enter a number of the document. The number must starts " +
                     "'docnum' or 'contract' and contain digits, and length no more 15 characters");
             for (int i = 1; i <= 10; i++) {
@@ -34,7 +34,7 @@ public class FileCompletion {
                 boolean a = (valid.toLowerCase().indexOf("docnum") == 0 || valid.toLowerCase().indexOf("contract") == 0) && valid.length() == 15;
                 if (a) {
                     try {
-                        FileWriter fileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\ValidDocumentNumbers.txt", true);
+                        FileWriter fileWriter = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson12\\ValidDocumentNumbers.txt", true);
                         fileWriter.write(valid.toLowerCase() + "\n");
                         fileWriter.close();
                     } catch (IOException ex) {
@@ -42,7 +42,7 @@ public class FileCompletion {
                     }
                 } else {
                     try {
-                        FileWriter fileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\InvalidDocumentNumbers.txt", true);
+                        FileWriter fileWriter = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson12\\InvalidDocumentNumbers.txt", true);
                         boolean b = (valid.toLowerCase().indexOf("docnum") != 0 && valid.toLowerCase().indexOf("contract") != 0);
                         if (b && valid.length() != 15) {
                             couse = "this document number doesn`t start at 'docnum' or 'contract' and no specified length";
@@ -70,10 +70,10 @@ public class FileCompletion {
 
     private static void addLocalDate() throws IOException {
         try {
-            FileWriter prefileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\ValidDocumentNumbers.txt", true);
+            FileWriter prefileWriter = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson12\\ValidDocumentNumbers.txt", true);
             prefileWriter.write("\n" + LocalDateTime.now() + "\n\n");
             prefileWriter.close();
-            FileWriter prefileWriter2 = new FileWriter("D:\\TMS\\TeachMeSkills\\InvalidDocumentNumbers.txt", true);
+            FileWriter prefileWriter2 = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson12\\InvalidDocumentNumbers.txt", true);
             prefileWriter2.write("\n" + LocalDateTime.now() + "\n\n");
             prefileWriter2.close();
         } catch (IOException e) {
