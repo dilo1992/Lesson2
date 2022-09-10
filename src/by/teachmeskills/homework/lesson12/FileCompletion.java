@@ -1,55 +1,88 @@
 package by.teachmeskills.homework.lesson12;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
+
 public class FileCompletion {
-    public static void main(String[] args) throws WrongNumberException, IOException, FileNotFoundException {
-        try (FileWriter fileWriter = new FileWriter("DocumentNumbers.txt")) {
+    public static void main(String[] args) throws WrongNumberException, IOException {
+        try (FileWriter fileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\DocumentNumbers.txt")) {
             System.out.println("Enter a number of the document. The number must starts " +
                     "'docnum' or 'contract' and contain digits, and length no more 15 characters");
             for (int i = 1; i <= 10; i++) {
                 System.out.print("Document number" + i + ": ");
                 Scanner scanner = new Scanner(System.in);
                 String numb = scanner.nextLine();
-                fileWriter.write(numb + "\n");
+                fileWriter.write(numb.toLowerCase() + "\n");
             }
             fileWriter.flush();
         } catch (IOException e) {
-            throw new WrongNumberException();
+            throw new RuntimeException();
         }
 
         try {
             Scanner scanner1 = new Scanner(System.in);
-            System.out.print("Enter a path to the required file: ");
+            System.out.println("Enter a path to the required file (input format example: D:\\TMS\\lesson1\\Example.txt): ");
             String path = scanner1.nextLine();
             FileReader fileReader = new FileReader(path);
-            FileWriter fileWriter2 = new FileWriter("ValidDocumentNumber.txt");
-            FileWriter fileWriter3 = new FileWriter("InvalidDocumentNumber.txt");
-            Scanner scanner2 = new Scanner(fileReader);
-            while (scanner2.hasNextLine()) {
-                boolean b = scanner2.nextLine().indexOf("docnum") < 0 || scanner2.nextLine().indexOf("contract") < 0;
-                if (b) {
+            Scanner scanner = new Scanner(fileReader);
+            addLocalDate();
+            while (scanner.hasNextLine()) {
+                String couse = null;
+                String valid = scanner.nextLine();
+                boolean a = (valid.toLowerCase().indexOf("docnum") == 0 || valid.toLowerCase().indexOf("contract") == 0) && valid.length() <= 15;
+                if (a) {
                     try {
-                        fileWriter3.write(scanner2.nextLine() + "\tThis number doesn`t starts with 'docnumb' or 'contract'");
+                        FileWriter fileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\ValidDocumentNumbers.txt", true);
+                        fileWriter.write(valid + "\n");
+                        fileWriter.close();
                     } catch (IOException ex) {
-                        throw new RuntimeException();
+                        throw new RuntimeException(ex);
                     }
                 } else {
                     try {
-                        fileWriter2.write(scanner2.nextLine());
+                        FileWriter fileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\InvalidDocumentNumbers.txt", true);
+                        boolean b = (valid.toLowerCase().indexOf("docnum") != 0 || valid.toLowerCase().indexOf("contract") != 0);
+                        if (b && valid.length() > 15) {
+                            couse = "this document number doesn`t start at 'docnum' or 'contract' and too long";
+                        } else if (b) {
+                            couse = "this document number doesn`t start at 'docnum' or 'contract'";
+                        } else if (valid.length() > 15) {
+                            couse = "this document number too long (more than 15 symbols)";
+                        }
+                        fileWriter.write(valid + "\t" + couse + "\n");
+                        fileWriter.close();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
             }
-        } catch (FileNotFoundException e) {
-            e.getMessage();
+        } catch (
+                IOException e) {
+            System.out.println("EXIT NEED");
+            throw new RuntimeException(e);
+        } catch (
+                Exception e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("The data sorted!");
+    }
+
+
+    private static void addLocalDate() throws IOException {
+        try {
+            FileWriter prefileWriter = new FileWriter("D:\\TMS\\TeachMeSkills\\ValidDocumentNumbers.txt", true);
+            prefileWriter.write("\n" + LocalDateTime.now() + "\n\n");
+            prefileWriter.close();
+            FileWriter prefileWriter2 = new FileWriter("D:\\TMS\\TeachMeSkills\\InvalidDocumentNumbers.txt", true);
+            prefileWriter2.write("\n" + LocalDateTime.now() + "\n\n");
+            prefileWriter2.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 }
+
+
+
