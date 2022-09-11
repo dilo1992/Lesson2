@@ -1,3 +1,5 @@
+package by.teachmeskills.homework.lesson5;
+
 import java.util.Arrays;
 import java.util.Random;
 

@@ -1,7 +1,14 @@
+package by.teachmeskills.classwork.lesson6;
+
 public class CreditCard {
-    private String account;
+    private final String account;
     private int amount;
     private int money;
+
+    public CreditCard(String account, int amount) {
+        this.account=account;
+        this.amount=amount;
+    }
 
     public void addMoney(int money) {
         this.money = money;
@@ -15,5 +22,8 @@ public class CreditCard {
         } else {
             amount -= money;
         }
+    }
+
+    public void print() {
     }
 }

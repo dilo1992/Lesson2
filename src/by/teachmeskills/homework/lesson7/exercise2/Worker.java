@@ -1,3 +1,5 @@
+package by.teachmeskills.homework.lesson7.exercise2;
+
 public class Worker implements Workable {
     String worker = "worker";
 

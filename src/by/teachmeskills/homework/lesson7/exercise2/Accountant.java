@@ -1,3 +1,5 @@
+package by.teachmeskills.homework.lesson7.exercise2;
+
 public class Accountant implements Workable {
     String accountant = "accountant";
 

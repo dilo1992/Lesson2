@@ -1,3 +1,5 @@
+package by.teachmeskills.homework.lesson7.exercise2;
+
 public class PrintNameTitle {
     public static void main(String[] args) {
         Workable director = new Director();

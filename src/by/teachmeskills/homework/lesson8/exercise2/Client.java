@@ -1,6 +1,4 @@
-package by.teachmeskills.homework.lesson8;
-
-import by.teachmeskills.homework.lesson8.exercise2.MedicalPlan;
+package by.teachmeskills.homework.lesson8.exercise2;
 
 public class Client {
     private MedicalPlan medicalPlan;

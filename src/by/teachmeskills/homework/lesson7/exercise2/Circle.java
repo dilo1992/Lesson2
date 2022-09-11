@@ -1,3 +1,7 @@
+package by.teachmeskills.homework.lesson7.exercise2;
+
+import by.teachmeskills.classwork.lesson7.Figure;
+
 public class Circle extends Figure {
     int radius;
 
