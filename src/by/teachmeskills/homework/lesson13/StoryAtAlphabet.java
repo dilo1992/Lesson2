@@ -7,7 +7,7 @@ public class StoryAtAlphabet {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         try (FileReader fileReader = new FileReader("D:\\”чеба\\ѕрограммирование\\Java\\TeachMeSkills\\" +
-                "Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson13\\story.txt")) {
+                "Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson13\\Story.txt")) {
             Scanner scanner = new Scanner(fileReader);
 
             //цикл дл€ добавлени€ слов в list в нижнем регистре (чтоб избежать при сортировке зан€ти€ первых индексов букв в верхнем регистре)
