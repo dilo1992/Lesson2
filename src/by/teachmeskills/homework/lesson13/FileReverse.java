@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 public class FileReverse {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
+        List<String> textAtString = new ArrayList<>();
         try (FileReader fileReader = new FileReader("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\" +
                 "Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson13\\String in list.txt")) {
             Scanner scanner = new Scanner(fileReader);
             while (scanner.hasNextLine()) {
-                list.add(scanner.nextLine());
+                textAtString.add(scanner.nextLine());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -21,8 +21,8 @@ public class FileReverse {
 
         try (FileWriter fileWriter = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\" +
                 "Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson13\\String in list_Reverse.txt")) {
-            Collections.reverse(list);
-            for (String s : list) {
+            Collections.reverse(textAtString);
+            for (String s : textAtString) {
                 fileWriter.write(s + "\n");
                 fileWriter.flush();
             }
