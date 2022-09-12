@@ -5,7 +5,7 @@ public class LoginPasswordChecker {
 
     public static boolean checkLoginAndPassword(String login, String password, String confirmPassword) throws WrongLoginException, NumberFormatException, WrongPasswordException {
         if (login.length() >= 20) {
-            System.out.println("Too many symbols in this login");
+            System.out.println("This login has too many symbols");
             throw new WrongLoginException(login);
         }
         if (login.isEmpty()) {

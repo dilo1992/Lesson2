@@ -7,32 +7,20 @@ import java.util.Scanner;
 
 public class FileCompletion {
     public static void main(String[] args) throws IOException {
-        try (FileWriter fileWriter = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson12\\DocumentNumbers.txt")) {
-            System.out.println("Enter a number of the document. The number must starts " +
-                    "'docnum' or 'contract' and contain digits, and length no more 15 characters");
-            for (int i = 1; i <= 10; i++) {
-                System.out.print("Document number" + i + ": ");
-                Scanner scanner = new Scanner(System.in);
-                String numb = scanner.nextLine();
-                fileWriter.write(numb.toLowerCase() + "\n");
-            }
-            fileWriter.flush();
-        } catch (IOException e) {
-            throw new RuntimeException();
-        }
+        Scanner scanner = new Scanner(System.in);
+        enterDocumentNumbers(scanner);
 
         try {
-            Scanner scanner1 = new Scanner(System.in);
             System.out.println("Enter a path to the required file (input format example: D:\\TMS\\lesson1\\Example.txt): ");
-            String path = scanner1.nextLine();
+            String path = scanner.nextLine();
             FileReader fileReader = new FileReader(path);
-            Scanner scanner = new Scanner(fileReader);
+            Scanner scanner1 = new Scanner(fileReader);
             addLocalDate();
-            while (scanner.hasNextLine()) {
-                String couse = null;
-                String valid = scanner.nextLine();
-                boolean a = (valid.toLowerCase().indexOf("docnum") == 0 || valid.toLowerCase().indexOf("contract") == 0) && valid.length() == 15;
-                if (a) {
+            while (scanner1.hasNextLine()) {
+                String cause = null;
+                String valid = scanner1.nextLine();
+                boolean conditionValid = (valid.toLowerCase().indexOf("docnum") == 0 || valid.toLowerCase().indexOf("contract") == 0) && valid.length() == 15;
+                if (conditionValid) {
                     try {
                         FileWriter fileWriter = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson12\\ValidDocumentNumbers.txt", true);
                         fileWriter.write(valid.toLowerCase() + "\n");
@@ -43,15 +31,15 @@ public class FileCompletion {
                 } else {
                     try {
                         FileWriter fileWriter = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson12\\InvalidDocumentNumbers.txt", true);
-                        boolean b = (valid.toLowerCase().indexOf("docnum") != 0 && valid.toLowerCase().indexOf("contract") != 0);
-                        if (b && valid.length() != 15) {
-                            couse = "this document number doesn`t start at 'docnum' or 'contract' and no specified length";
-                        } else if (b) {
-                            couse = "this document number doesn`t start at 'docnum' or 'contract'";
+                        boolean conditionInvalid = (valid.toLowerCase().indexOf("docnum") != 0 && valid.toLowerCase().indexOf("contract") != 0);
+                        if (conditionInvalid && valid.length() != 15) {
+                            cause = "this document number doesn`t start at 'docnum' or 'contract' and no specified length";
+                        } else if (conditionInvalid) {
+                            cause = "this document number doesn`t start at 'docnum' or 'contract'";
                         } else if (valid.length() != 15) {
-                            couse = "this document number no specified length (must be 15 symbols)";
+                            cause = "this document number no specified length (must be 15 symbols)";
                         }
-                        fileWriter.write(valid.toLowerCase() + "\t" + couse + "\n");
+                        fileWriter.write(valid.toLowerCase() + "\t" + cause + "\n");
                         fileWriter.close();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -65,6 +53,22 @@ public class FileCompletion {
             throw new RuntimeException(e);
         }
         System.out.println("The data sorted!");
+    }
+
+
+    private static void enterDocumentNumbers(Scanner scanner) {
+        try (FileWriter fileWriter = new FileWriter("D:\\Учеба\\Программирование\\Java\\TeachMeSkills\\Lesson2_final\\src\\by\\teachmeskills\\homework\\lesson12\\DocumentNumbers.txt")) {
+            System.out.println("Enter a number of the document. The number must starts " +
+                    "'docnum' or 'contract' and contain digits, and length no more 15 characters");
+            for (int i = 1; i <= 10; i++) {
+                System.out.print("Document number" + i + ": ");
+                String numb = scanner.nextLine();
+                fileWriter.write(numb.toLowerCase() + "\n");
+            }
+            fileWriter.flush();
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
     }
 
 
