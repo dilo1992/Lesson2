@@ -1,11 +1,13 @@
 package by.teachmeskills.homework.lesson14;
 
 import java.time.DateTimeException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class DayOfTheWeek {
-    public static void main(String[] args) throws RuntimeException, WrongFormatException {
+
+public class NextTuesday {
+    public static void main(String[] args) {
         String dateInMethod;
         LocalDate enteredDate = null;
         boolean success = false;
@@ -21,7 +23,19 @@ public class DayOfTheWeek {
                 System.out.println("The entered date is not in the correct format (check the correctness of the entered data about the year)");
             }
         }
-        System.out.println("It is " + enteredDate.getDayOfWeek());
+        System.out.println(nextTuesdayChecker(enteredDate));
+    }
+
+
+    private static LocalDate nextTuesdayChecker(LocalDate enteredDate) {
+        LocalDate nextTuesday = enteredDate;
+        while (!(DayOfWeek.TUESDAY.equals(nextTuesday.getDayOfWeek()))) {
+            if (!DayOfWeek.TUESDAY.equals(nextTuesday.getDayOfWeek())) {
+                nextTuesday = nextTuesday.plusDays(1);
+            }
+        }
+        nextTuesday = nextTuesday.plusWeeks(1);
+        return nextTuesday;
     }
 
 
