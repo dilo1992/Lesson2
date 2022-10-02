@@ -29,7 +29,7 @@ public class Document {
 
     @Override
     public String toString() {
-        return "Document{" +
+        return "{" +
                 "documentsNumbers=" + documentsNumber +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +

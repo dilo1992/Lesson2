@@ -9,64 +9,98 @@ import java.util.regex.Pattern;
 
 public class DocumentsMain {
     public static void main(String[] args) throws IOException, RuntimeException {
-        // String test = "g1111-fff-2222-fff-2g5g444";
-        //String testEmail = "lionel_messi@mail.ru";
-        //String testPhone = "+(29)2922929";
-        Map <String, Document> documents = new HashMap<>();
+        Map<String, Document> mapOfDocuments = new TreeMap<>();
         System.out.println("Enter document folder name: ");
         Scanner scanner = new Scanner(System.in);
         String pathOfFolder = scanner.nextLine();
         File file = new File(pathOfFolder);
+
         String[] arrOfFiles = file.list();
+        int count = 0;
+        do {
+            if (arrOfFiles.length == 0) {
+                System.out.println("This folder is empty");
+            }
+            for (String arrOfFile : arrOfFiles) {  //то же самое, что и for(int i=0; i<arrOfFiles; i++) {
+                if (arrOfFile.endsWith(".txt")) {
+                    count++;
+                }
+            }
+            if (count == 0) {
+                System.out.println("This folder does not contain files of the required format ");
+            }
+        } while (false);
+
         String docNumberCheckerPattern = "(\\d{4}-)([a-zA-Z]{3}-)(\\d{4}-)([a-zA-Z]{3}-)(\\d[a-zA-Z]\\d[a-zA-Z])";
         String emailCheckerPattern = "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}";
         String phoneNumberCheckerPattern = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{2}-?\\|d{2}-?\\+?\\(\\d{2}\\)\\d{3}d{2}-?\\d{2}-?\\d{2}-?|\\+?(\\d{0,3})\\(\\d{2}\\)\\d{7}";
         Pattern pattern = Pattern.compile(docNumberCheckerPattern);
         Pattern pattern1 = Pattern.compile(emailCheckerPattern, Pattern.CASE_INSENSITIVE);
         Pattern pattern2 = Pattern.compile(phoneNumberCheckerPattern);
-        //выводим на печать названия всех файлов из папки
+
         for (File currentFile : file.listFiles()) {
-            Document document=new Document();
+            StringBuilder sb = getKeyForMapFromFileName(currentFile);
+
+            Document document = new Document();
             List<String> numberDoc = new ArrayList<>();
-            try {
-                try (FileReader fileReader = new FileReader(currentFile)) {
-                    Scanner scanner1 = new Scanner(fileReader);
-                    while (scanner1.hasNextLine()) {
-                        Matcher matcherDocNumb = pattern.matcher(scanner1.nextLine());
-                        while (matcherDocNumb.find()) {
-                            //System.out.println(matcher.group());
-                            numberDoc.add(matcherDocNumb.group());
-                        }
-                    }
-                }
-                document.setDocumentsNumber(numberDoc);
+            getDocNumberForCycle(pattern, currentFile, numberDoc);
+            document.setDocumentsNumber(numberDoc);
+            getEmailForCycle(pattern1, currentFile, document);
+            getPhoneNumbForCycle(pattern2, currentFile, document);
 
-                try (FileReader fileReader = new FileReader(currentFile)) {
-                    Scanner scanner1 = new Scanner(fileReader);
-                    while (scanner1.hasNextLine()) {
-                        Matcher matcherEmail = pattern1.matcher(scanner1.nextLine());
-                        while (matcherEmail.find()) {                       //ищем совпадения по нашему шаблону
-                            //System.out.println(matcherEmail.group());    //Распечатает первое совпадение с шаблоном (набор цифр). group() сгруппирует найденное совпадение в строчку
-                            document.setEmail(matcherEmail.group());
-                        }
-                    }
-                }
+            mapOfDocuments.put(sb.toString(), document);
+        }
+        System.out.println(mapOfDocuments);
+    }
 
-                try (FileReader fileReader = new FileReader(currentFile)) {
-                    Scanner scanner1 = new Scanner(fileReader);
-                    while (scanner1.hasNextLine()) {
-                        Matcher matcherPhoneNumb = pattern2.matcher(scanner1.nextLine());
-                        while (matcherPhoneNumb.find()) {                       //ищем совпадения по нашему шаблону
-                            //System.out.println(matcherPhoneNumb.group());    //Распечатает первое совпадение с шаблоном (набор цифр). group() сгруппирует найденное совпадение в строчку
-                            document.setPhoneNumber(matcherPhoneNumb.group());
-                        }
-                    }
-                }
+    private static StringBuilder getKeyForMapFromFileName(File currentFile) {
+        String nameOfFile = currentFile.getName();
+        StringBuilder sb = new StringBuilder(currentFile.getName());
+        if (nameOfFile.endsWith(".txt")) {
+            sb.delete(nameOfFile.lastIndexOf(".txt"), nameOfFile.length());
+        }
+        return sb;
+    }
 
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+    private static void getPhoneNumbForCycle(Pattern pattern2, File currentFile, Document document) {
+        try (FileReader fileReader = new FileReader(currentFile)) {
+            Scanner scanner1 = new Scanner(fileReader);
+            while (scanner1.hasNextLine()) {
+                Matcher matcherPhoneNumb = pattern2.matcher(scanner1.nextLine());
+                while (matcherPhoneNumb.find()) {
+                    document.setPhoneNumber(matcherPhoneNumb.group());
+                }
             }
-            System.out.println(document.toString());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void getEmailForCycle(Pattern pattern1, File currentFile, Document document) {
+        try (FileReader fileReader = new FileReader(currentFile)) {
+            Scanner scanner1 = new Scanner(fileReader);
+            while (scanner1.hasNextLine()) {
+                Matcher matcherEmail = pattern1.matcher(scanner1.nextLine());
+                while (matcherEmail.find()) {
+                    document.setEmail(matcherEmail.group());
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void getDocNumberForCycle(Pattern pattern, File currentFile, List<String> numberDoc) {
+        try (FileReader fileReader = new FileReader(currentFile)) {
+            Scanner scanner1 = new Scanner(fileReader);
+            while (scanner1.hasNextLine()) {
+                Matcher matcherDocNumb = pattern.matcher(scanner1.nextLine());
+                while (matcherDocNumb.find()) {
+                    numberDoc.add(matcherDocNumb.group());
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
