@@ -4,46 +4,59 @@ import java.util.List;
 import java.util.Optional;
 
 public class Document {
-    private List<String> documents;
-    private Optional<String> phoneNumber;
-    private Optional<String> email;
+    private List<String> documentsNumber;
+    private String phoneNumber;
+    private String email;
 
-    public Document(List<String> documents, Optional<String> phoneNumber, Optional<String> email) {
-        this.documents = documents;
+    public Document() {
+    }
+
+    public Optional<String> getOptionalPhoneNumber() {
+        return Optional.ofNullable(phoneNumber);
+    }
+
+    public Optional<String> getOptionalEmail() {
+        //return Optional.of(nickname);
+        return Optional.ofNullable(email);
+    }
+
+    public Document(List<String> documentsNumber, String phoneNumber, String email) {
+        this.documentsNumber = documentsNumber;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
-    public List<String> getDocuments() {
-        return documents;
-    }
-
-    public void setDocuments(List<String> documents) {
-        this.documents = documents;
-    }
-
-    public Optional<String> getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(Optional<String> phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Optional<String> getEmail() {
-        return email;
-    }
-
-    public void setEmail(Optional<String> email) {
-        this.email = email;
-    }
 
     @Override
     public String toString() {
         return "Document{" +
-                "documents=" + documents +
-                ", phoneNumber=" + phoneNumber +
-                ", email=" + email +
+                "documentsNumbers=" + documentsNumber +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
                 '}';
+    }
+
+    public List<String> getDocumentsNumber() {
+        return documentsNumber;
+    }
+
+    public void setDocumentsNumber(List<String> documentsNumber) {
+        this.documentsNumber = documentsNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
