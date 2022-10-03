@@ -8,12 +8,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DocumentsMain {
-    public static void main(String[] args) throws IOException, RuntimeException, NotFoundException {
+    public static void main(String[] args) {//throws IOException, RuntimeException, NotFoundException {
         Map<String, Document> mapOfDocuments = new TreeMap<>();
         System.out.println("Enter document folder name: ");
         Scanner scanner = new Scanner(System.in);
         String pathOfFolder = scanner.nextLine();
         File file = new File(pathOfFolder);
+
 
         try {
             do {
@@ -21,19 +22,16 @@ public class DocumentsMain {
                 if (arrOfFiles.isEmpty()) {
                     System.out.println("This folder is empty");
                 } else {
-                    try {
-                        Optional<Long> count = Optional.ofNullable(Optional.of(arrOfFiles.stream()
-                                        .filter(x -> x.endsWith(".txt"))
-                                        .count())
-                                .orElseThrow(() -> new NotFoundException("This folder does not contain files of the required format ")));
-                    } catch (NotFoundException | SecurityException e) {
-                        System.out.println(e.getMessage());
-                    }
+                    Optional<Long> count = Optional.ofNullable(Optional.of(arrOfFiles.stream()
+                                    .filter(x -> x.endsWith(".txt"))
+                                    .count())
+                            .orElseThrow(() -> new NotFoundException("This folder does not contain files of the required format ")));
                 }
             } while (true);
-        } catch (NullPointerException e) {
+        } catch (NullPointerException | NotFoundException | SecurityException e) {
             System.out.println(e.getMessage());
         }
+
 
         String docNumberCheckerPattern = "(\\d{4}-)([a-zA-Z]{3}-)(\\d{4}-)([a-zA-Z]{3}-)(\\d[a-zA-Z]\\d[a-zA-Z])";
         String emailCheckerPattern = "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}";
