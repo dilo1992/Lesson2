@@ -1,5 +1,6 @@
 package by.teachmeskills.homework.lesson17;
 
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,29 +9,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-
 public class DocumentsMain {
-    public static void main(String[] args) throws IOException, RuntimeException, NotFoundException {
-        Map<String, Document> mapOfDocuments = new TreeMap<>();
-        File file;
-        do {
-            System.out.println("Enter document folder name: ");
-            Scanner scanner = new Scanner(System.in);
-            file = new File(scanner.nextLine());
-            Optional<String[]> optionalListOfFiles = Optional.ofNullable(file.list());
-            if (optionalListOfFiles.isEmpty()) {
-                System.out.println("This folder is empty");
-                continue;
-            } else {
-                List<String> arrOfFiles = List.of(file.list());
-                long count = arrOfFiles.stream()
-                        .filter(x -> x.endsWith(".txt"))
-                        .count();
-                if(count == 0) {
-                    System.out.println("This folder does not contain files of the required format ");
-                } else break;
-            }
-        } while (true);
+    public static void main(String[] args) throws IOException, RuntimeException {
+        Map<String, Document> mapOfDocuments = new HashMap<>();
+        File[] listFiles;
+        listFiles = setFolderName();
 
         String docNumberCheckerPattern = "(\\d{4}-)([a-zA-Z]{3}-)(\\d{4}-)([a-zA-Z]{3}-)(\\d[a-zA-Z]\\d[a-zA-Z])";
         String emailCheckerPattern = "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}";
@@ -38,7 +21,7 @@ public class DocumentsMain {
         Pattern pattern = Pattern.compile(docNumberCheckerPattern);
         Pattern pattern1 = Pattern.compile(emailCheckerPattern, Pattern.CASE_INSENSITIVE);
         Pattern pattern2 = Pattern.compile(phoneNumberCheckerPattern);
-        for (File currentFile : file.listFiles()) {
+        for (File currentFile : listFiles) {
             StringBuilder sb = getKeyForMapFromFileName(currentFile);
             Document document = new Document();
             List<String> numberDoc = new ArrayList<>();
@@ -49,6 +32,26 @@ public class DocumentsMain {
             mapOfDocuments.put(sb.toString(), document);
         }
         System.out.println(mapOfDocuments);
+    }
+
+    private static File[] setFolderName() {
+        File[] listFiles;
+        File file;
+        do {
+            System.out.println("Enter document folder name: ");
+            Scanner scanner = new Scanner(System.in);
+            file = new File(scanner.nextLine());
+            if (!file.exists()) {
+                System.out.println("This folder is not found");
+                continue;
+            }
+            listFiles = file.listFiles(new MyNameFileFilter(".txt"));
+            if (listFiles.length == 0) {
+                System.out.println("This folder does not contain files of the required format");
+                continue;
+            } else break;
+        } while (true);
+        return listFiles;
     }
 
     private static StringBuilder getKeyForMapFromFileName(File currentFile) {
