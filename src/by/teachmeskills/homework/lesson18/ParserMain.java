@@ -17,7 +17,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SAXParserMain {
+public class ParserMain {
     private static ArrayList<String> text = new ArrayList<>();
     private static File XMLForProcess;
 
