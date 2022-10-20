@@ -9,8 +9,8 @@
                             <xsi:element name="lastName"/>
                             <xsi:element name="firstName"/>
                             <xsi:element name="nationality"/>
-                            <xsi:element name="yearOfBirth"/>
-                            <xsi:element name="yearOfDeath"/>
+                            <xsi:element name="yearOfBirth" type="xsi:integer"/>
+                            <xsi:element name="yearOfDeath" type="xsi:integer"/>
                         </xsi:all>
                     </xsi:complexType>
                 </xsi:element>
@@ -18,7 +18,7 @@
                 <xsi:element name="lines">
                     <xsi:complexType>
                         <xsi:sequence>
-                            <xsi:element name="line" type="xsi:negativeInteger"/>
+                            <xsi:element name="line" type="xsi:string"/>
                         </xsi:sequence>
                     </xsi:complexType>
                 </xsi:element>
