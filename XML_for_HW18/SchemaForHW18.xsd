@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsi:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema">
+    <xsi:element name="sonnet">
+        <xsi:complexType>
+            <xsi:sequence>
+                <xsi:element name="author">
+                    <xsi:complexType>
+                        <xsi:all>
+                            <xsi:element name="lastName"/>
+                            <xsi:element name="firstName"/>
+                            <xsi:element name="nationality"/>
+                            <xsi:element name="yearOfBirth" type="xsi:integer"/>
+                            <xsi:element name="yearOfDeath" type="xsi:integer"/>
+                        </xsi:all>
+                    </xsi:complexType>
+                </xsi:element>
+                <xsi:element name="title"/>
+                <xsi:element name="lines">
+                    <xsi:complexType>
+                        <xsi:sequence>
+                            <xsi:element name="line" type="xsi:string"/>
+                        </xsi:sequence>
+                    </xsi:complexType>
+                </xsi:element>
+            </xsi:sequence>
+        </xsi:complexType>
+    </xsi:element>
+</xsi:schema>
