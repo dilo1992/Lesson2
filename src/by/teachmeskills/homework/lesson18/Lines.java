@@ -1,28 +1,29 @@
 package by.teachmeskills.homework.lesson18;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Arrays;
+
 public class Lines {
-    private String line;
+
+    private String[] line;
 
     public Lines() {
     }
 
-    public Lines(String line) {
-        super();
-        this.line = line;
-    }
-
-    public String getLine() {
+    @XmlElement(name="line")
+    public String[] getLine() {
         return line;
     }
 
-    public void setLine(String line) {
+    public void setLine(String[] line) {
         this.line = line;
     }
 
     @Override
     public String toString() {
         return "Lines{" +
-                "line='" + line + '\'' +
+                "line=" + Arrays.toString(line) +
                 '}';
     }
 }

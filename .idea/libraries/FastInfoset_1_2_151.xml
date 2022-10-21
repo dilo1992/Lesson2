@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="FastInfoset-1.2.151">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/jar_files/FastInfoset-1.2.15.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files/istack-commons-runtime-3.0.7.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files/javax.activation-api-1.2.0.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files/jaxb-api-2.3.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files/jaxb-runtime-2.3.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files/stax-ex-1.8.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files/txw2-2.3.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files-2/javax.activation-api-1.2.0.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files-2/jaxb-api-2.3.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/javax.activation-api-1.2.0.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/istack-commons-runtime-3.0.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

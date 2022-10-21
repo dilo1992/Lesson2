@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="glassfish.jaxb.core" type="repository">
+  <library name="glassfish.jaxb.core1" type="repository">
     <properties maven-id="org.glassfish.jaxb:jaxb-core:2.3.0.1" />
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar!/" />

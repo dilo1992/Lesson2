@@ -1,6 +1,5 @@
 package by.teachmeskills.homework.lesson18;
 
-import by.teachmeskills.classwork.lesson18.Article;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

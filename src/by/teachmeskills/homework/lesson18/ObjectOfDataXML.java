@@ -1,12 +1,22 @@
 package by.teachmeskills.homework.lesson18;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name="sonnet")
 public class ObjectOfDataXML {
+
+
+    private String type;
+
     private Author author;
+
     private String title;
+
     private Lines lines;
 
     public ObjectOfDataXML() {
     }
+
 
     public ObjectOfDataXML(Author author, String title, Lines lines) {
         super();
@@ -23,6 +33,7 @@ public class ObjectOfDataXML {
         this.author = author;
     }
 
+    @XmlElement
     public String getTitle() {
         return title;
     }
@@ -39,10 +50,20 @@ public class ObjectOfDataXML {
         this.lines = lines;
     }
 
+    @XmlAttribute
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "ObjectOfDataXML{" +
-                "author=" + author +
+                "type='" + type + '\'' +
+                ", author=" + author +
                 ", title='" + title + '\'' +
                 ", lines=" + lines +
                 '}';

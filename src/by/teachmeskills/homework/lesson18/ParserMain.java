@@ -73,7 +73,7 @@ public class ParserMain {
                 }
                 System.out.println("Enter the number corresponding to the document required for processing");
                 Scanner scannerNeededFile = new Scanner(System.in);
-                XMLForProcess = listFiles[scannerNeededFile.nextInt()];
+                XMLForProcess = listFiles[scannerNeededFile.nextInt()-1];
                 break;
             } else {
                 XMLForProcess = listFiles[0];

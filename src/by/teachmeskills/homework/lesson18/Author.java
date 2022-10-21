@@ -1,5 +1,8 @@
 package by.teachmeskills.homework.lesson18;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 public class Author {
 
     private String lastName;
@@ -19,6 +22,7 @@ public class Author {
         this.yearOfDeath = yearOfDeath;
     }
 
+    @XmlElement
     public String getLastName() {
         return lastName;
     }
@@ -27,6 +31,7 @@ public class Author {
         this.lastName = lastName;
     }
 
+    @XmlElement
     public String getFirstName() {
         return firstName;
     }
@@ -35,6 +40,7 @@ public class Author {
         this.firstName = firstName;
     }
 
+    @XmlElement
     public String getNationality() {
         return nationality;
     }
@@ -43,6 +49,7 @@ public class Author {
         this.nationality = nationality;
     }
 
+    @XmlElement
     public int getYearOfBirth() {
         return yearOfBirth;
     }
@@ -51,6 +58,7 @@ public class Author {
         this.yearOfBirth = yearOfBirth;
     }
 
+    @XmlElement
     public int getYearOfDeath() {
         return yearOfDeath;
     }
